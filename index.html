@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background-color</title>
+</head>
+<style>
+    #btn {
+        position: absolute;
+        margin-top: 250px;
+        margin-left: 500px;
+        text-decoration: none;
+        font-size: x-large;
+        border:solid black;
+        color: black;
+        padding: 40px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+</style>
+
+<body style="background-color:lightgrey;">
+    <a id="btn" href="javascript:void(0)"> Change background color</a>
+</body>
+<script>
+    const availableString = "0123456789abcdef";
+    function getColor() {
+        colorString = "#";
+        while (colorString.length < 7) {
+            randIndex = Math.floor(Math.random() * 16);
+            colorString += availableString[randIndex];
+        }
+        return colorString;
+    }
+    document.querySelector("#btn").addEventListener("click", () => {
+        document.body.style.backgroundColor = getColor();
+    });
+</script>
+
+</html>
